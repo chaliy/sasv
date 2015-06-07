@@ -14,3 +14,6 @@ npm-debug.log
 !.elasticbeanstalk/*.cfg.yml
 
 !.elasticbeanstalk/*.global.yml
+
+public/javascripts/*.js
+public/stylesheets/fx.css

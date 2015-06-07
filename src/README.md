@@ -6,20 +6,28 @@
   choco install mongodb
   choco install atom
 
+  LiveReload - https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei
+  Robomongo
+
 # Dev
 
 ## Старт проекту
 
   npm install
   gulp build
-  npm start
+  start npm start
 
   http://localhost:3000/
 
 
 ## На час розробки
 
-   gulp dev
+   start gulp dev
+   start npm start
+
+   http://localhost:3000/
+
+
 
 # Install
 

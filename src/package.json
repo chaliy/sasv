@@ -32,9 +32,11 @@
   },
   "devDependencies": {
     "browserify": "^9.0.3",
+    "es6ify": "^1.6.0",
     "gulp": "^3.8.11",
     "gulp-concat": "^2.5.2",
     "gulp-jasmine": "^2.0.1",
+    "gulp-livereload": "^3.8.0",
     "gulp-react": "^3.0.1",
     "gulp-util": "^3.0.4",
     "react-tools": "^0.13.1",

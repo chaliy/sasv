@@ -6,6 +6,8 @@ var source = require('vinyl-source-stream');
 var browserify = require('browserify');
 var reactify = require('reactify');
 var robocopy = require('robocopy');
+var livereload = require('gulp-livereload');
+var es6ify = require('es6ify');
 
 var report = function(err){
   gutil.log(
@@ -13,7 +15,7 @@ var report = function(err){
         err.message
     );
     this.emit('end');
-}
+};
 
 var vendorLibs = [
   'es6-shim',
@@ -39,6 +41,7 @@ gulp.task('jsx', function () {
   return browserify('./client/app.js')
     .external(vendorLibs)
     .transform(reactify)
+    .transform(es6ify)
     .bundle()
     .on('error', report)
     .pipe(source('client.js'))
@@ -50,18 +53,12 @@ gulp.task('js', function () {
 
   browserify({
       require: vendorLibs,
-      //exposeAll: true
       expose: vendorLibs
     })
     .bundle()
     .on('error', report)
     .pipe(source('fx.js'))
     .pipe(gulp.dest('./public/javascripts/'));
-
-  return gulp
-        .src(['node_modules/react/dist/react.min.js', 'node_modules/react-bootstrap/dist/react-bootstrap.min.js'])
-        .pipe(concat('fx.js'))
-        .pipe(gulp.dest('./public/javascripts/'));
 });
 
 gulp.task('build', ['jsx', 'css', 'js']);
@@ -72,6 +69,7 @@ gulp.task('test', function () {
 });
 
 gulp.task('dev', function () {
+  livereload.listen();
   gulp
     .watch('client/**/*.js', ['jsx', 'test']);
 });
