@@ -135,6 +135,7 @@ var dal = function(n){
 };
 
 module.exports.EmployeesDataAccess = dal('employees');
+module.exports.CoursesDataAccess = dal('courses');
 
 module.exports.ObjectID = mongo.ObjectID;
 module.exports.ISODate = mongo.ISODate;

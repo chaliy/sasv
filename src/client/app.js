@@ -17,9 +17,10 @@ var ButtonLink = ReactRouterBootstrap.ButtonLink;
 
 var About = require('./components/about').About;
 var Employees = require('./components/employee/employees').Employees;
+var Courses = require('./components/course/courses').Courses;
 
 require('./stores/employees-store').EmployeesStore.init();
-
+require('./stores/courses-store').CoursesStore.init();
 
 var App = React.createClass({
 
@@ -29,6 +30,7 @@ var App = React.createClass({
         <Navbar brand='Студія Візажу'>
           <Nav>
             <NavItemLink to="employees" >Співробітники</NavItemLink>
+            <NavItemLink to="courses" >Курси</NavItemLink>
             <NavItemLink to="about">Про программу...</NavItemLink>
           </Nav>
         </Navbar>
@@ -43,6 +45,7 @@ var App = React.createClass({
 var routes = (
   <Route handler={App} path="/">
     <Route name="employees" path="employees" handler={Employees} />
+    <Route name="courses" path="courses" handler={Courses} />
     <Route name="about" path="about" handler={About} />
   </Route>
 );

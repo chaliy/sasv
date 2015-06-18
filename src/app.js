@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({limit: '50mb',  extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/employees', require('./server/api/employees'));
+app.use('/api/courses', require('./server/api/courses'));
 app.use('/', require('./server/routes/index'));
 
 // catch 404 and forward to error handler

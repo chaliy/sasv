@@ -43,7 +43,7 @@ var EmployeesModel = assign({}, {
   * Додати employee
   **/
   add: function(employee, cb){
-    _process(employee, function(err, employee){      
+    _process(employee, function(err, employee){
       dal.add(employee, cb);
     });
   },
